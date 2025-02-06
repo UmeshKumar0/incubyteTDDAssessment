@@ -20,10 +20,6 @@ Throws an exception for negative numbers ("1,-2,-3") → "Negative numbers not a
 
 A basic Flutter UI has been implemented to interact with the String Calculator. Users can enter numbers and see the computed sum.
 
-🖼️ UI Preview
-
- (Replace with actual image link)
-
 📜 Method Signature
 
 int add(String numbers)
