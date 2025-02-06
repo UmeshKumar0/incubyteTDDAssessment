@@ -29,7 +29,9 @@ void main() {
   });
 
   test('Throws exception for negative numbers', () {
-    expect(() => calculator.add("1,-2,3,-4"),
-        throwsA(predicate((e) => e.toString().contains("Negative numbers not allowed: -2, -4"))));
+    expect(
+        () => calculator.add("1,-2,3,-4"),
+        throwsA(predicate((e) =>
+            e.toString().contains("Negative numbers not allowed: -2, -4"))));
   });
 }
