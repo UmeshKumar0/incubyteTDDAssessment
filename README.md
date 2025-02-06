@@ -16,6 +16,14 @@ Supports custom delimiters ("//;\n1;2") → returns 3
 
 Throws an exception for negative numbers ("1,-2,-3") → "Negative numbers not allowed: -2, -3"
 
+📱 Simple UI
+
+A basic Flutter UI has been implemented to interact with the String Calculator. Users can enter numbers and see the computed sum.
+
+🖼️ UI Preview
+
+ (Replace with actual image link)
+
 📜 Method Signature
 
 int add(String numbers)
