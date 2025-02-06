@@ -14,7 +14,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final TextEditingController _controller = TextEditingController();
-  int sum = 0;
+  String sum = '';
 
   StringCalculator calculator = StringCalculator();
   @override
@@ -45,9 +45,7 @@ class _MyAppState extends State<MyApp> {
                 ElevatedButton(
                   onPressed: () {
                     // Add button logic here
-                    setState(() {
-                      sum = calculator.add(_controller.text);
-                    });
+                    add();
                   },
                   child: const Text('Add'),
                 ),
@@ -63,9 +61,11 @@ class _MyAppState extends State<MyApp> {
                         "Output: ",
                         style: TextStyle(color: Colors.white),
                       ),
-                      Text(
-                        sum.toString(),
-                        style: const TextStyle(color: Colors.white),
+                      Expanded(
+                        child: Text(
+                          sum.toString(),
+                          style: const TextStyle(color: Colors.white),
+                        ),
                       ),
                     ],
                   ),
@@ -74,5 +74,20 @@ class _MyAppState extends State<MyApp> {
             ),
           )),
     );
+  }
+
+  void add() {
+    try {
+      setState(() {
+        sum = calculator.add(_controller.text).toString();
+      });
+    } catch (e) {
+      if (e.toString().contains("Exception:")) {
+        setState(() {
+          // remove the "Exception:" prefix
+          sum = e.toString().substring(10);
+        });
+      }
+    }
   }
 }
